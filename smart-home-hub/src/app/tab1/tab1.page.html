@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Securitate
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" icon="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+   <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="medium">
+        <ion-title>Aditionale</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-button (click)="SignOut()">Delogare</ion-menu-button>
+      </ion-list>
+    </ion-content>
+  </ion-menu> 
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+
+
+ <ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Usa principala</ion-card-title>
+  </ion-card-header>
+
+<ion-card-content>
+<h2>Usa este <b>{{ doorStatus }}</b>.</h2>
+<ion-button size="large" color="success" (click)="doorUnlocked()">Descuie</ion-button>
+<ion-button size="large" color="danger" (click)="doorLocked()">Incuie</ion-button>
+</ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Alte usi</ion-card-title>
+  </ion-card-header>
+<ion-card-content>
+<ion-list>
+  <ion-item>
+    <ion-icon [src]="lockImageStatus" slot="end"></ion-icon>
+    <ion-label>Usa dorsala</ion-label>
+    <ion-toggle [ngModel]='lockAction'></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-icon [src]="lockImageStatus" slot="end"></ion-icon>
+    <ion-label>Poarta garaj</ion-label>
+    <ion-toggle [ngModel]='lockAction'></ion-toggle>
+  </ion-item>
+</ion-list>
+
+<ion-button color="medium" (click)="offToggle()"><ion-icon name="lock-open-sharp"></ion-icon>Descuie toate</ion-button>
+<ion-button color="medium" (click)="onToggle()"><ion-icon name="lock-closed-sharp"></ion-icon>Incuie toate</ion-button>
+</ion-card-content>
+</ion-card>
+</ion-content>

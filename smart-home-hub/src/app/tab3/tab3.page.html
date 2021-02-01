@@ -1,0 +1,107 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Iluminat
+    </ion-title>
+    <!-- <ion-buttons slot="primary">
+      <ion-button onclick="toggleReorder()">Toggle</ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- <ion-list>
+  
+    <ion-item-divider color="medium">
+      <ion-label>Sufragerie</ion-label>
+    </ion-item-divider>
+
+    
+    <ion-item>
+      <ion-label>Tavan: lumini reci</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    
+
+
+    <ion-item>
+      <ion-label>Tavan: lumini calde</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    
+
+    <ion-item>
+      <ion-label>Televizor</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Veioza</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+  </ion-list>
+    <br>
+  <ion-list>
+    <ion-item-divider color="medium">
+      <ion-label>Dormitor</ion-label>
+    </ion-item-divider>
+
+      <ion-item>
+        <ion-label>Tavan</ion-label>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Noptiera stanga</ion-label>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Noptiera dreapta</ion-label>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+    </ion-list> -->
+
+    
+      <ion-item-divider color="medium">
+        <ion-label>Sufragerie</ion-label>
+      </ion-item-divider>
+
+    <ion-list> 
+      <ion-item *ngFor="let light of lightsLivingRoom">
+        <ion-label> {{ light }}</ion-label>
+        <ion-toggle></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-item-divider color="medium">
+      <ion-label>Dormitor</ion-label>
+    </ion-item-divider>
+
+    <ion-list> 
+      <ion-item *ngFor="let light of lightsBedRoom">
+        <ion-label> {{ light }}</ion-label>
+        <ion-toggle></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-item-divider color="medium">
+      <ion-label>Exterior</ion-label>
+    </ion-item-divider>
+
+    <ion-list> 
+      <ion-item *ngFor="let light of lightsOutside">
+        <ion-label> {{ light }}</ion-label>
+        <ion-toggle></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="primary" (click)="presentAlertPrompt()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+ 
+  
+
+  </ion-content>
+

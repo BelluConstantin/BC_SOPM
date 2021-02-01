@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Centrala
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<!-- Temperatura calorifer:
+  Read angular two-way binding. 
+  Off button = heating off => target --, 
+  Hot button = target 24-65C, 
+  up-down arrow to decrease/increase target.
+    Temperatura apa:
+  Either slider with number on the side
+  or insert number.
+  Show current temperature (current set number).
+  "Temperatura apei este setata la: n C"
+
+  -->
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Termostat </ion-card-title> 
+    </ion-card-header>
+  <ion-card-content>
+  <p> Exterior: 18 &#8451;</p>
+  <p> Interior: 22 &#8451;</p>
+  <p><b> Target: {{ targetTemp }} &#8451;</b></p> 
+    <ion-button size="medium" color="success" (click)="onTargetTemp()">Porneste</ion-button>
+    <ion-button size="medium" color="medium" (click)="offTargetTemp()">Opreste</ion-button>
+    <br><br>
+  <ion-card-subtitle>Reglaj temperatura target: </ion-card-subtitle>
+  <ion-button color="primary" [disabled] = "thermoOff" (click)="downTargetTemp()" ><ion-icon name="arrow-down"></ion-icon></ion-button>
+    <ion-button color="danger" [disabled] = "thermoOff" (click)="upTargetTemp()" ><ion-icon name="arrow-up"></ion-icon></ion-button>
+    
+    <ion-item>
+    
+      <ion-range [(ngModel)]="targetTemp" min="20" max="34" step="1" value="1" snaps color="danger" [disabled] = "thermoOff">
+        <ion-icon slot="start" size="small" color="primary" name="snow-outline"></ion-icon>
+        <ion-icon slot="end" color="danger" name="flame-outline"></ion-icon>
+      </ion-range>
+    </ion-item>
+ 
+  </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title ion-card-title>Apa</ion-card-title>
+    </ion-card-header> 
+  <ion-card-content>
+  <p><b> Temperatura apei este: {{ waterTemp }}&#8451;</b></p>
+  <br>
+  <ion-card-subtitle>Reglaj temperatura apa: </ion-card-subtitle>
+    <ion-button color="primary" (click)="downWaterTemp()"><ion-icon name="arrow-down"></ion-icon></ion-button>
+    <ion-button color="danger" (click)="upWaterTemp()"><ion-icon name="arrow-up"></ion-icon></ion-button>
+    <ion-range [(ngModel)]="waterTemp" min="20" max="45" step="1" value="1" snaps color="danger">
+      <ion-icon slot="start" size="small" color="primary" name="water-outline"></ion-icon>
+      <ion-icon slot="end" color="danger" name="water-outline"></ion-icon>
+    </ion-range>
+  </ion-card-content>
+  </ion-card>
+  
+</ion-content>
